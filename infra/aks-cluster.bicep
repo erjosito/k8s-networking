@@ -45,6 +45,58 @@ param dnsServiceIP string = '10.1.0.10'
 @description('Pod CIDR for overlay networking')
 param podCidr string = '10.244.0.0/16'
 
+// Network Security Group for AKS subnet
+// AKS manages its own NSG on node NICs (in the MC_ resource group), but some
+// Azure policies auto-attach an empty NSG to the subnet which blocks LoadBalancer
+// traffic. This explicit NSG ensures inbound HTTP/HTTPS traffic is allowed.
+resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+  name: '${clusterName}-nsg'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'AllowHTTPInbound'
+        properties: {
+          priority: 100
+          direction: 'Inbound'
+          access: 'Allow'
+          protocol: 'Tcp'
+          sourceAddressPrefix: 'Internet'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          destinationPortRange: '80'
+        }
+      }
+      {
+        name: 'AllowHTTPSInbound'
+        properties: {
+          priority: 110
+          direction: 'Inbound'
+          access: 'Allow'
+          protocol: 'Tcp'
+          sourceAddressPrefix: 'Internet'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          destinationPortRange: '443'
+        }
+      }
+      {
+        name: 'AllowNodePortRange'
+        properties: {
+          priority: 200
+          direction: 'Inbound'
+          access: 'Allow'
+          protocol: 'Tcp'
+          sourceAddressPrefix: 'Internet'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          destinationPortRange: '30000-32767'
+        }
+      }
+    ]
+  }
+}
+
 // Virtual Network
 resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: '${clusterName}-vnet'
@@ -60,6 +112,9 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
         name: 'aks-subnet'
         properties: {
           addressPrefix: subnetAddressPrefix
+          networkSecurityGroup: {
+            id: nsg.id
+          }
         }
       }
     ]

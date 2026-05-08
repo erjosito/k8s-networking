@@ -34,12 +34,13 @@ check "Service 'backend-svc' exists with type ClusterIP" \
 echo ""
 echo "— Challenge 3: Service connectivity and DNS —"
 BACKEND_SVC_IP=$(kubectl get svc backend-svc -o jsonpath='{.spec.clusterIP}' 2>/dev/null)
-if [[ -n "$BACKEND_SVC_IP" ]]; then
-  check "Can reach backend-svc via ClusterIP" \
-    "kubectl run verify-svc --rm -i --restart=Never --image=busybox -- wget -qO- --timeout=5 http://$BACKEND_SVC_IP:9376 2>/dev/null"
+BACKEND_SVC_PORT=$(kubectl get svc backend-svc -o jsonpath='{.spec.ports[0].port}' 2>/dev/null)
+if [[ -n "$BACKEND_SVC_IP" && -n "$BACKEND_SVC_PORT" ]]; then
+  check "Can reach backend-svc via ClusterIP ($BACKEND_SVC_IP:$BACKEND_SVC_PORT)" \
+    "kubectl run verify-svc --rm -i --restart=Never --image=busybox -- wget -qO- --timeout=5 http://$BACKEND_SVC_IP:$BACKEND_SVC_PORT 2>/dev/null"
 fi
 check "Can resolve backend-svc via DNS" \
-  "kubectl run verify-dns --rm -i --restart=Never --image=busybox -- nslookup backend-svc 2>/dev/null"
+  "kubectl run verify-dns --rm -i --restart=Never --image=busybox -- nslookup backend-svc.default.svc.cluster.local 2>/dev/null"
 
 echo ""
 echo "— Challenge 4: EndpointSlices —"

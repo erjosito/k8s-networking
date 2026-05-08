@@ -35,7 +35,7 @@ check "NetworkPolicy 'allow-backend-external' exists" \
 echo ""
 echo "— Challenge 4: Verify enforcement —"
 check "backend can resolve DNS (via labeled pod)" \
-  "kubectl run verify-dns-be --rm -i --restart=Never --overrides='{\"metadata\":{\"labels\":{\"app\":\"backend\"}}}' --image=busybox -- nslookup httpbin.org 2>/dev/null"
+  "kubectl run verify-dns-be --rm -i --restart=Never --overrides='{\"metadata\":{\"labels\":{\"app\":\"backend\"}}}' --image=busybox -- nslookup httpbin.org 2>/dev/null | grep -q Address"
 
 echo "  ℹ️  Testing backend -> httpbin.org (may take a few seconds)..."
 if kubectl run verify-egress-be --rm -i --restart=Never --overrides='{"metadata":{"labels":{"app":"backend"}}}' --image=busybox -- wget -qO- --timeout=10 http://httpbin.org/get &>/dev/null; then

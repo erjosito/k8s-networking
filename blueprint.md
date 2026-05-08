@@ -193,7 +193,7 @@ The table below maps each blueprint sub-topic to the exercise(s) where it is pra
 | 1.1 Flat pod network, no NAT | Ex 01 | Core of the exercise |
 | 1.2 Pod network namespaces, localhost | Ex 01 | Multi-container pod challenge |
 | 1.3 Pod-to-pod across nodes | Ex 01 | Anti-affinity forces cross-node |
-| 1.4 CNI and CNI plugins | 📖 | Cluster uses Azure CNI; students don't install/configure CNI directly |
+| 1.4 CNI and CNI plugins | Ex 13 | Install Calico/Flannel, inspect /etc/cni/net.d/ and /opt/cni/bin/ |
 | 1.5 IP allocation for Pods/Services/Nodes | Ex 01, Ex 02 | Observed via `kubectl get pods -o wide` and `kubectl get svc` |
 | 1.6 hostNetwork and hostPort | Ex 01 | Bonus challenge: deploy hostNetwork pod, compare IPs |
 | **Domain 2 — Services (18%)** | | |
@@ -262,8 +262,8 @@ The table below maps each blueprint sub-topic to the exercise(s) where it is pra
 
 | Status | Count | Topics |
 |--------|-------|--------|
-| ✅ Covered by exercises | 40 | Most sub-topics |
-| 📖 Theory only (no hands-on) | 7 | 1.4, 3.6, 4.7, 6.2, 7.1, 7.2, 7.4 |
+| ✅ Covered by exercises | 41 | Most sub-topics |
+| 📖 Theory only (no hands-on) | 6 | 3.6, 4.7, 6.2, 7.1, 7.2, 7.4 |
 | ❌ Not covered at all | 2 | 2.8, 6.5 |
 
 ---

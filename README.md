@@ -10,13 +10,13 @@ This repository contains a **sample exam blueprint** and **hands-on challenge ex
 |------|-------------|
 | [blueprint.md](blueprint.md) | Sample exam blueprint with weighted domains |
 | [infra/](infra/) | Shared Azure Bicep templates and deployment scripts |
-| [exercises/](exercises/) | 12 challenge-driven exercises with hints and solutions |
+| [exercises/](exercises/) | 13 challenge-driven exercises with hints and solutions |
 
 ## Exercise Progression
 
 Exercises 01–10 build on a **single shared AKS cluster** and follow a progressive storyline. Each exercise adds complexity to the environment **without tearing down** the resources from previous exercises. By exercise 10, you'll have a fully-featured environment with services, network policies, ingress, and Gateway API — and you'll need to debug it when things break.
 
-Exercises 11–12 require **separate, specialized clusters** (multi-zone and dual-stack) and are standalone.
+Exercises 11–13 require **separate, specialized clusters** (multi-zone, dual-stack, or kubeadm on VMs) and are standalone.
 
 ### Track 1 — Progressive Build (shared cluster)
 
@@ -39,6 +39,7 @@ Exercises 11–12 require **separate, specialized clusters** (multi-zone and dua
 |---|----------|------------|
 | 11 | [Topology-Aware Routing](exercises/11-topology-aware-routing/README.md) | Zone-aware traffic, EndpointSlice hints |
 | 12 | [Dual-Stack Networking](exercises/12-dual-stack/README.md) | IPv4/IPv6, ipFamilyPolicy, dual-stack services |
+| 13 | [CNI Deep Dive](exercises/13-cni-deep-dive/README.md) | kubeadm cluster, install/compare CNI plugins, inspect network plumbing |
 
 ## Prerequisites
 
@@ -54,5 +55,5 @@ Exercises 11–12 require **separate, specialized clusters** (multi-zone and dua
 2. Deploy the shared AKS infrastructure using the scripts in [infra/](infra/)
 3. Work through exercises 01–10 **in order** — each builds on the previous one
 4. **Do not clean up** between exercises 01–10 (cleanup is optional at the end of each)
-5. Exercises 11–12 can be done in any order — they use separate clusters
+5. Exercises 11–13 can be done in any order — they use separate clusters
 6. Use the hints and solutions only when stuck — the challenge format is intentional!

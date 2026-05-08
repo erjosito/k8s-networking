@@ -23,6 +23,7 @@ Understanding the foundational networking model that all Kubernetes clusters imp
 - **1.3** Understand pod-to-pod communication across nodes
 - **1.4** Understand the role of the Container Networking Interface (CNI) and CNI plugins
 - **1.5** Understand IP address allocation for Pods, Services, and Nodes
+- **1.6** Understand `hostNetwork` and `hostPort` for pods that use the node's network namespace
 
 **References:**
 - https://kubernetes.io/docs/concepts/services-networking/
@@ -113,6 +114,7 @@ Using the next-generation traffic routing API for Kubernetes.
 - **6.3** Configure HTTPRoute for path-based and header-based routing
 - **6.4** Configure traffic splitting and weighted routing
 - **6.5** Understand cross-namespace route attachment and ReferenceGrants
+- **6.6** Configure GRPCRoute for gRPC traffic routing
 
 **References:**
 - https://kubernetes.io/docs/concepts/services-networking/gateway/
@@ -155,6 +157,7 @@ Optimizing traffic routing based on network topology.
 - **9.1** Understand Topology Aware Routing and the `service.kubernetes.io/topology-mode` annotation
 - **9.2** Understand zone-based endpoint allocation in EndpointSlices
 - **9.3** Understand safeguards and constraints of topology-aware routing
+- **9.4** Understand the `trafficDistribution` Service field (PreferSameZone, PreferSameNode)
 
 **References:**
 - https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/
@@ -170,6 +173,7 @@ Diagnosing and resolving network-related issues in Kubernetes.
 - **10.3** Diagnose DNS resolution failures
 - **10.4** Identify and resolve NetworkPolicy conflicts
 - **10.5** Use tools like `curl`, `wget`, `nslookup`, `dig`, and `tcpdump` from within pods
+- **10.6** Use ephemeral containers (`kubectl debug`) to troubleshoot running pods
 
 **References:**
 - https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/
@@ -191,12 +195,13 @@ The table below maps each blueprint sub-topic to the exercise(s) where it is pra
 | 1.3 Pod-to-pod across nodes | Ex 01 | Anti-affinity forces cross-node |
 | 1.4 CNI and CNI plugins | 📖 | Cluster uses Azure CNI; students don't install/configure CNI directly |
 | 1.5 IP allocation for Pods/Services/Nodes | Ex 01, Ex 02 | Observed via `kubectl get pods -o wide` and `kubectl get svc` |
+| 1.6 hostNetwork and hostPort | Ex 01 | Bonus challenge: deploy hostNetwork pod, compare IPs |
 | **Domain 2 — Services (18%)** | | |
 | 2.1 ClusterIP Services | Ex 02 | Core of the exercise |
 | 2.2 NodePort Services | Ex 03 | Created and tested |
 | 2.3 LoadBalancer Services | Ex 03 | Created with AKS Azure LB |
 | 2.4 ExternalName Services | Ex 03 | `external-api` → httpbin.org |
-| 2.5 Services without selectors / manual EndpointSlices | ❌ **Not covered** | Should be added — important for bridging external systems |
+| 2.5 Services without selectors / manual EndpointSlices | Ex 03 | `legacy-db` Service with manual EndpointSlice |
 | 2.6 Headless Services | Ex 04 | Core of the exercise |
 | 2.7 EndpointSlices | Ex 02, Ex 04 | Inspected and observed |
 | 2.8 sessionAffinity | ❌ **Not covered** | Minor topic; could be a bonus challenge |
@@ -230,6 +235,7 @@ The table below maps each blueprint sub-topic to the exercise(s) where it is pra
 | 6.3 Path + header-based routing | Ex 09 | Both implemented |
 | 6.4 Traffic splitting / weighted routing | Ex 09 | 80/20 canary |
 | 6.5 Cross-namespace routes / ReferenceGrants | ❌ **Not covered** | Could be a bonus; requires multi-namespace Gateway |
+| 6.6 GRPCRoute | Ex 09 | Bonus: create GRPCRoute for gRPC backend |
 | **Domain 7 — kube-proxy (8%)** | | |
 | 7.1 Role of kube-proxy | 📖 | Implicitly used but not directly examined |
 | 7.2 Proxy modes (iptables, IPVS, nftables) | 📖 | AKS uses iptables by default; not switched between modes |
@@ -243,20 +249,22 @@ The table below maps each blueprint sub-topic to the exercise(s) where it is pra
 | 9.1 topology-mode annotation | Ex 11 | Core of the exercise |
 | 9.2 Zone-based EndpointSlice allocation | Ex 11 | Observed |
 | 9.3 Safeguards and constraints | Ex 11 | Discussed in hints |
+| 9.4 trafficDistribution field | Ex 11 | Bonus: PreferSameZone compared with annotation approach |
 | **Domain 10 — Troubleshooting (5%)** | | |
 | 10.1 Debug Services (describe, endpoints, DNS) | Ex 10 | Core debugging exercise |
 | 10.2 Pod-to-pod connectivity | Ex 01, Ex 10 | Verified throughout |
 | 10.3 DNS resolution failures | Ex 05, Ex 10 | Tested |
 | 10.4 NetworkPolicy conflicts | Ex 10 | Bug 3 is a NetworkPolicy issue |
 | 10.5 Debugging tools | Ex 01–Ex 10 | `curl`, `wget`, `nslookup` used throughout |
+| 10.6 Ephemeral containers (kubectl debug) | Ex 10 | Attach netshoot to running pod |
 
 ### Summary
 
 | Status | Count | Topics |
 |--------|-------|--------|
-| ✅ Covered by exercises | 35 | Most sub-topics |
-| 📖 Theory only (no hands-on) | 8 | 1.4, 3.6, 4.7, 6.2, 7.1, 7.2, 7.4 |
-| ❌ Not covered at all | 3 | 2.5, 2.8, 6.5 |
+| ✅ Covered by exercises | 40 | Most sub-topics |
+| 📖 Theory only (no hands-on) | 7 | 1.4, 3.6, 4.7, 6.2, 7.1, 7.2, 7.4 |
+| ❌ Not covered at all | 2 | 2.8, 6.5 |
 
 ---
 
@@ -306,10 +314,12 @@ The following networking topics exist in the Kubernetes documentation but were *
 
 ### Recommendations
 
-Based on this analysis, consider adding these topics to strengthen the blueprint:
+Based on this analysis, the following topics were added to strengthen the blueprint:
 
-1. **Domain 1 — Add 1.6: `hostNetwork` and `hostPort`** — Common for DaemonSets (node exporters, ingress controllers). Referenced at https://kubernetes.io/docs/concepts/services-networking/
-2. **Domain 2 — Add exercise for 2.5: Services without selectors** — Important pattern for proxying external databases. Currently ❌ not covered.
-3. **Domain 6 — Add 6.6: GRPCRoute** — GA since Gateway API v1.2.0 and increasingly relevant.
-4. **Domain 9 — Add 9.4: `trafficDistribution` field** — Newer alternative to topology-mode annotation.
-5. **Domain 10 — Add 10.6: Ephemeral containers (`kubectl debug`)** — Modern troubleshooting technique.
+1. ✅ **Domain 1 — Added 1.6: `hostNetwork` and `hostPort`** — Bonus challenge in Exercise 01. Referenced at https://kubernetes.io/docs/concepts/services-networking/
+2. ✅ **Domain 2 — Added exercise for 2.5: Services without selectors** — `legacy-db` Service with manual EndpointSlice in Exercise 03.
+3. ✅ **Domain 6 — Added 6.6: GRPCRoute** — Bonus challenge in Exercise 09. GA since Gateway API v1.2.0.
+4. ✅ **Domain 9 — Added 9.4: `trafficDistribution` field** — Bonus challenge in Exercise 11 comparing with annotation approach.
+5. ✅ **Domain 10 — Added 10.6: Ephemeral containers (`kubectl debug`)** — Added to Exercise 10 debugging workflow.
+
+**Remaining gap:** Topic 2.8 (sessionAffinity) and 6.5 (cross-namespace ReferenceGrants) are minor topics that could be added as bonus challenges in future iterations.

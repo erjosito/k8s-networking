@@ -88,9 +88,9 @@ Controlling traffic flow between pods and external networks.
 
 ---
 
-## Domain 5 — Ingress (12%)
+## Domain 5 — Ingress (8%)
 
-Configuring HTTP/HTTPS routing into the cluster using Ingress resources.
+Configuring HTTP/HTTPS routing into the cluster using Ingress resources. While Ingress remains stable and widely deployed, it is being gradually superseded by the Gateway API (Domain 6).
 
 - **5.1** Understand the Ingress resource and its relationship to Ingress Controllers
 - **5.2** Configure path-based routing (Prefix, Exact, ImplementationSpecific)
@@ -105,9 +105,9 @@ Configuring HTTP/HTTPS routing into the cluster using Ingress resources.
 
 ---
 
-## Domain 6 — Gateway API (10%)
+## Domain 6 — Gateway API (14%)
 
-Using the next-generation traffic routing API for Kubernetes.
+Using the next-generation traffic routing API for Kubernetes. Gateway API is the successor to Ingress, offering richer routing, role-oriented design, and extensibility.
 
 - **6.1** Understand the Gateway API resource model (GatewayClass, Gateway, HTTPRoute, GRPCRoute)
 - **6.2** Understand the role-oriented design (Infrastructure Provider, Cluster Operator, App Developer)

@@ -1,7 +1,9 @@
 # Exercise 09 — Gateway API
 
 **Blueprint Domain:** 6 — Gateway API  
-**Progressive Environment:** 🔵 Builds on Exercise 08 — add Gateway API alongside Ingress
+**Progressive Environment:** 🔵 Builds on Exercise 08 — add Gateway API as the modern replacement for Ingress
+
+> **Context:** The Gateway API supersedes Ingress with richer routing, role-oriented design, and extensibility. Having used Ingress in Exercise 08, you can now compare both approaches side by side.
 
 ## What Already Exists
 

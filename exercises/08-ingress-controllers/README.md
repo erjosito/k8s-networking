@@ -3,6 +3,8 @@
 **Blueprint Domain:** 5 — Ingress  
 **Progressive Environment:** 🔵 Builds on Exercise 07 — expose the Bookstore through an Ingress
 
+> **Context:** Ingress is the established approach for HTTP routing in Kubernetes and remains widely deployed in production. In Exercise 09, you'll learn the Gateway API — its modern successor.
+
 ## What Already Exists
 
 From Exercise 07, the Bookstore has:

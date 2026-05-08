@@ -15,7 +15,7 @@ You're building a "Bookstore" application that will grow across all exercises. I
 2. From `frontend`, reach `backend` using its **pod IP** — verify you get a response.
 3. From `backend`, reach `frontend` using its **pod IP** — verify you get a response.
 4. Prove that the source IP seen by the destination pod matches the sender's pod IP (no NAT).
-5. Deploy a multi-container pod (`frontend-debug`) with **two containers** (nginx + busybox sidecar) and prove they communicate over `localhost`.
+5. Deploy a multi-container pod (`frontend-debug`) with **two containers** (nginx + busybox sidecar) and prove they communicate over `localhost`. (Tip: busybox doesn't include `curl`, but it does have `wget` — use `wget -qO-` to fetch pages.)
 6. **Bonus — hostNetwork:** Deploy a pod with `hostNetwork: true` and verify it shares the node's network namespace (the pod's IP should be the node IP). Understand the security implications.
 
 ## What You'll Leave Running

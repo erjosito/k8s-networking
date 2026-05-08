@@ -34,18 +34,18 @@ check "NetworkPolicy 'allow-backend-external' exists" \
 
 echo ""
 echo "— Challenge 4: Verify enforcement —"
-check "backend can resolve DNS" \
-  "kubectl exec deploy/backend -- nslookup httpbin.org 2>/dev/null"
+check "backend can resolve DNS (via labeled pod)" \
+  "kubectl run verify-dns-be --rm -i --restart=Never --overrides='{\"metadata\":{\"labels\":{\"app\":\"backend\"}}}' --image=busybox -- nslookup httpbin.org 2>/dev/null"
 
 echo "  ℹ️  Testing backend -> httpbin.org (may take a few seconds)..."
-if kubectl exec deploy/backend -- wget -qO- --timeout=10 http://httpbin.org/get &>/dev/null; then
+if kubectl run verify-egress-be --rm -i --restart=Never --overrides='{"metadata":{"labels":{"app":"backend"}}}' --image=busybox -- wget -qO- --timeout=10 http://httpbin.org/get &>/dev/null; then
   echo "  ✅ backend -> httpbin.org is ALLOWED"; ((PASS++))
 else
   echo "  ❌ backend -> httpbin.org is BLOCKED (should be allowed)"; ((FAIL++))
 fi
 
 echo "  ℹ️  Testing frontend -> httpbin.org (should timeout — that's expected)..."
-if kubectl exec deploy/frontend -- wget -qO- --timeout=5 http://httpbin.org/get &>/dev/null; then
+if kubectl run verify-egress-fe --rm -i --restart=Never --overrides='{"metadata":{"labels":{"app":"frontend"}}}' --image=busybox -- wget -qO- --timeout=5 http://httpbin.org/get &>/dev/null; then
   echo "  ❌ frontend -> httpbin.org is ALLOWED (should be blocked)"; ((FAIL++))
 else
   echo "  ✅ frontend -> httpbin.org is BLOCKED"; ((PASS++))

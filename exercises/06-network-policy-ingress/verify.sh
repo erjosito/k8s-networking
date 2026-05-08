@@ -40,7 +40,7 @@ echo "— Challenge 4: Verify enforcement —"
 BACKEND_IP=$(kubectl get svc backend-svc -o jsonpath='{.spec.clusterIP}' 2>/dev/null)
 if [[ -n "$BACKEND_IP" ]]; then
   check "frontend -> backend is ALLOWED" \
-    "kubectl exec deploy/frontend -- wget -qO- --timeout=5 http://$BACKEND_IP 2>/dev/null"
+    "kubectl run verify-frontend --rm -i --restart=Never --overrides='{\"metadata\":{\"labels\":{\"app\":\"frontend\"}}}' --image=busybox -- wget -qO- --timeout=5 http://$BACKEND_IP 2>/dev/null"
   echo "  ℹ️  Testing that unauthorized pods are blocked (may timeout — that's expected)..."
   if kubectl run verify-outsider --rm -i --restart=Never --image=busybox --timeout=10s -- wget -qO- --timeout=3 "http://$BACKEND_IP" &>/dev/null; then
     echo "  ❌ Outsider pod can still reach backend (policy not enforced)"; ((FAIL++))

@@ -45,14 +45,14 @@ echo "— Challenge 2: Verify pod-to-pod connectivity —"
 BACKEND_IP=$(kubectl get pod backend -o jsonpath='{.status.podIP}' 2>/dev/null)
 if [[ -n "$BACKEND_IP" ]]; then
   check "frontend can reach backend at $BACKEND_IP" \
-    "kubectl exec frontend -- wget -qO- --timeout=5 http://$BACKEND_IP"
+    "kubectl run verify-f2b --rm -i --restart=Never --image=busybox -- wget -qO- --timeout=5 http://$BACKEND_IP 2>/dev/null"
 else
   echo "  ❌ Cannot determine backend pod IP"; ((FAIL++))
 fi
 FRONTEND_IP=$(kubectl get pod frontend -o jsonpath='{.status.podIP}' 2>/dev/null)
 if [[ -n "$FRONTEND_IP" ]]; then
   check "backend can reach frontend at $FRONTEND_IP" \
-    "kubectl exec backend -- wget -qO- --timeout=5 http://$FRONTEND_IP"
+    "kubectl run verify-b2f --rm -i --restart=Never --image=busybox -- wget -qO- --timeout=5 http://$FRONTEND_IP 2>/dev/null"
 else
   echo "  ❌ Cannot determine frontend pod IP"; ((FAIL++))
 fi

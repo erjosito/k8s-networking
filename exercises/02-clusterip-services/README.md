@@ -21,10 +21,10 @@ Replace the standalone pods with Deployments (for resilience and scaling) and cr
 
 ## Challenge
 
-1. Delete the standalone `frontend` and `backend` pods from Exercise 01 and replace them with **Deployments** (3 replicas each), keeping the same labels.
+1. Delete the standalone `frontend` and `backend` pods from Exercise 01 and replace them with **Deployments** (3 replicas each), keeping the same labels. Use the image `registry.k8s.io/serve_hostname` for the backend Deployment — this lightweight image responds with the pod's hostname, making load-balancing behaviour easy to observe.
 2. Create a ClusterIP Service named `frontend-svc` targeting the frontend pods on port 80.
-3. Create a ClusterIP Service named `backend-svc` targeting the backend pods on port 80.
-4. From a test pod, call `backend-svc` by its **cluster IP** — verify you get responses from different backend pods (load balancing).
+3. Create a ClusterIP Service named `backend-svc` targeting the backend pods on port **9376** (the default port for `serve_hostname`).
+4. From a test pod, call `backend-svc` by its **cluster IP** — verify you get responses from different backend pods (load balancing). Each response should show a different hostname.
 5. Call `backend-svc` by its **DNS name** — verify it resolves to the cluster IP.
 6. Inspect the EndpointSlice for `backend-svc` and verify it lists all 3 pod IPs.
 7. Scale the backend to 5 replicas and verify the EndpointSlice updates automatically.
@@ -34,9 +34,9 @@ Replace the standalone pods with Deployments (for resilience and scaling) and cr
 | Resource | Name | Details |
 |----------|------|---------|
 | Deployment | `frontend` | 3 replicas, labels: `app=frontend, tier=frontend` |
-| Deployment | `backend` | 5 replicas, labels: `app=backend, tier=backend` |
+| Deployment | `backend` | 5 replicas, image: `registry.k8s.io/serve_hostname`, labels: `app=backend, tier=backend` |
 | Service | `frontend-svc` | ClusterIP, port 80 → frontend pods |
-| Service | `backend-svc` | ClusterIP, port 80 → backend pods |
+| Service | `backend-svc` | ClusterIP, port 9376 → backend pods |
 | Pod | `frontend-debug` | Multi-container pod from Ex 01 |
 
 ## Success Criteria
@@ -78,7 +78,7 @@ See: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 kubectl expose deployment hostnames --port=80 --target-port=9376
 ```
 
-Or use a YAML manifest. The key is mapping `port: 80` → `targetPort: 9376`.
+Or use a YAML manifest. The `serve_hostname` image listens on port 9376, so set both `port` and `targetPort` to 9376.
 
 See: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service
 
@@ -164,10 +164,10 @@ spec:
         tier: backend
     spec:
       containers:
-      - name: web
-        image: nginx:stable
+      - name: serve-hostname
+        image: registry.k8s.io/serve_hostname
         ports:
-        - containerPort: 80
+        - containerPort: 9376
 ```
 
 ```bash
@@ -199,8 +199,8 @@ spec:
   selector:
     app: backend
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 9376
+    targetPort: 9376
     protocol: TCP
 ```
 
@@ -213,7 +213,7 @@ kubectl get svc frontend-svc backend-svc
 
 ```bash
 kubectl run test --rm -it --image=busybox:1.36 --restart=Never -- sh -c \
-  'for i in $(seq 1 10); do wget -qO- http://backend-svc 2>/dev/null | head -1; done'
+  'for i in $(seq 1 10); do wget -qO- http://backend-svc:9376 2>/dev/null; done'
 ```
 
 ### Step 4 — Test DNS resolution

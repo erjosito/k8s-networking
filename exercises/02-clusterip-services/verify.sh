@@ -36,7 +36,7 @@ echo "— Challenge 3: Service connectivity and DNS —"
 BACKEND_SVC_IP=$(kubectl get svc backend-svc -o jsonpath='{.spec.clusterIP}' 2>/dev/null)
 if [[ -n "$BACKEND_SVC_IP" ]]; then
   check "Can reach backend-svc via ClusterIP" \
-    "kubectl run verify-svc --rm -i --restart=Never --image=busybox -- wget -qO- --timeout=5 http://$BACKEND_SVC_IP 2>/dev/null"
+    "kubectl run verify-svc --rm -i --restart=Never --image=busybox -- wget -qO- --timeout=5 http://$BACKEND_SVC_IP:9376 2>/dev/null"
 fi
 check "Can resolve backend-svc via DNS" \
   "kubectl run verify-dns --rm -i --restart=Never --image=busybox -- nslookup backend-svc 2>/dev/null"

@@ -283,7 +283,7 @@ This is the last exercise in Track 1. You can now tear down everything:
 kubectl delete namespace staging
 
 # If you want to clean up the entire Bookstore environment:
-# See ckne/infra/cleanup.sh
+# See infra/cleanup.sh
 ```
 
 **References:**

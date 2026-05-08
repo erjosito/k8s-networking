@@ -46,7 +46,7 @@ No additional infrastructure is required for this exercise.
 
 ```bash
 # Deploy the shared AKS cluster (if not already running)
-cd ckne/infra && bash deploy-aks.sh
+cd infra && bash deploy-aks.sh
 ```
 
 ---

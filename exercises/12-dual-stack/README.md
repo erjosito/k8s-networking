@@ -32,7 +32,7 @@ Configure and test dual-stack networking on a Kubernetes cluster, where pods and
 ### Dual-Stack AKS Bicep Template
 
 ```bicep
-// ckne/exercises/12-dual-stack/aks-dualstack.bicep
+// exercises/12-dual-stack/aks-dualstack.bicep
 
 @description('Azure region')
 param location string = 'swedencentral'

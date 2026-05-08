@@ -31,7 +31,7 @@ Configure Topology Aware Routing to keep service traffic within the same availab
 ### Multi-Zone AKS Bicep Template
 
 ```bicep
-// ckne/exercises/11-topology-aware-routing/aks-multizone.bicep
+// exercises/11-topology-aware-routing/aks-multizone.bicep
 
 @description('Azure region (must support availability zones)')
 param location string = 'swedencentral'

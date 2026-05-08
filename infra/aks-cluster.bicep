@@ -1,7 +1,9 @@
 // ============================================================================
 // AKS Cluster — Shared infrastructure for CKNE exercises
 // ============================================================================
-// Deploys a basic AKS cluster with Azure CNI and Calico network policy.
+// Deploys a basic AKS cluster with Azure CNI Overlay and Calico network policy.
+// CNI Overlay gives pods their own CIDR (separate from the node subnet),
+// which is the more common pattern in Kubernetes.
 // Most exercises (01-10) can share this single cluster.
 // Exercises 11 and 12 have additional Bicep templates for multi-zone and
 // dual-stack configurations respectively.
@@ -29,16 +31,19 @@ param networkPlugin string = 'azure'
 param networkPolicy string = 'calico'
 
 @description('Virtual network address prefix')
-param vnetAddressPrefix string = '10.0.0.0/8'
+param vnetAddressPrefix string = '10.0.0.0/16'
 
 @description('Subnet address prefix for the AKS nodes')
-param subnetAddressPrefix string = '10.240.0.0/16'
+param subnetAddressPrefix string = '10.0.0.0/24'
 
 @description('Service CIDR for Kubernetes Services')
-param serviceCidr string = '10.0.0.0/16'
+param serviceCidr string = '10.1.0.0/16'
 
 @description('DNS service IP (must be within serviceCidr)')
-param dnsServiceIP string = '10.0.0.10'
+param dnsServiceIP string = '10.1.0.10'
+
+@description('Pod CIDR for overlay networking')
+param podCidr string = '10.244.0.0/16'
 
 // Virtual Network
 resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
@@ -82,9 +87,11 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2024-01-01' = {
     ]
     networkProfile: {
       networkPlugin: networkPlugin
+      networkPluginMode: 'overlay'
       networkPolicy: networkPolicy
       serviceCidr: serviceCidr
       dnsServiceIP: dnsServiceIP
+      podCidr: podCidr
     }
   }
 }

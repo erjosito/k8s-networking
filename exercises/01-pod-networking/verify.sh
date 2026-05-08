@@ -67,8 +67,8 @@ check "Pod 'frontend-debug' has at least 2 containers" \
 
 echo ""
 echo "— Bonus: hostNetwork pod —"
-bonus "Pod 'hostnet-test' exists with hostNetwork: true" \
-  "kubectl get pod hostnet-test -o jsonpath='{.spec.hostNetwork}' | grep -q true"
+bonus "A pod with hostNetwork: true exists" \
+  "kubectl get pods -o jsonpath='{range .items[?(@.spec.hostNetwork==true)]}{.metadata.name}{end}' | grep -q ."
 
 echo ""
 echo "========================================"

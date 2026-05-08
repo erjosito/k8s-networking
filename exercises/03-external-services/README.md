@@ -15,6 +15,9 @@ From Exercise 02:
 
 Expose the Bookstore **frontend** to traffic from **outside the cluster** using NodePort and LoadBalancer service types. Understand `externalTrafficPolicy` and its effect on source IP preservation. Also learn how to reference external services via ExternalName.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Create a **NodePort** Service named `frontend-nodeport` for the frontend pods. Access it from within the cluster using `<node-ip>:<nodePort>`.

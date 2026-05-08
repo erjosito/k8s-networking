@@ -16,6 +16,9 @@ All resources are in the `default` namespace.
 
 Deep-dive into how Kubernetes DNS works using the existing Bookstore app: the `resolv.conf` configuration, cross-namespace resolution, SRV records, and custom DNS policies.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Inspect `/etc/resolv.conf` in one of the existing frontend pods. Identify the nameserver, search domains, and `ndots` value.

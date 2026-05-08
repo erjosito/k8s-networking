@@ -17,6 +17,9 @@ From Exercise 09, you have a fully running Bookstore environment:
 
 A colleague has attempted to deploy a second instance of the Bookstore in a new namespace (`staging`) but everything is broken. You need to use systematic debugging to find and fix **all 3 bugs** they introduced.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 ### Setup the broken environment

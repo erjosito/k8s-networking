@@ -14,6 +14,9 @@ From Exercise 01, you should have these pods running:
 
 Replace the standalone pods with Deployments (for resilience and scaling) and create ClusterIP Services to provide stable endpoints. Understand how selectors bind pods to services and observe EndpointSlices.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Delete the standalone `frontend` and `backend` pods from Exercise 01 and replace them with **Deployments** (3 replicas each), keeping the same labels.

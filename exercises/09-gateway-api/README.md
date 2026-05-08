@@ -16,6 +16,9 @@ From Exercise 08, the Bookstore has:
 
 Deploy the Gateway API alongside the existing Ingress setup. Use it to implement a **canary deployment** for the Bookstore backend (v2 rollout), demonstrating the Gateway API's traffic splitting, path-based routing, and header-based matching capabilities.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Install the Gateway API CRDs and a Gateway API implementation (e.g., NGINX Gateway Fabric).

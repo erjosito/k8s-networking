@@ -15,6 +15,9 @@ From Exercise 05, the Bookstore has:
 
 Use NetworkPolicies to lock down the Bookstore's **inbound traffic**. Only the intended communication paths should be allowed: frontend ← users, backend ← frontend, database ← backend.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Verify that **all Bookstore pods can reach all other pods** by default (no isolation).

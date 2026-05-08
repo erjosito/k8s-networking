@@ -7,6 +7,9 @@
 
 Prove that the Kubernetes flat network model works: every pod can reach every other pod by IP address, regardless of which node they are scheduled on, **without NAT**.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 You're building a "Bookstore" application that will grow across all exercises. In this first exercise, you deploy the **frontend** and **backend** tiers as standalone pods.

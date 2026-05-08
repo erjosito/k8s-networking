@@ -6,6 +6,9 @@
 
 Configure Topology Aware Routing to keep service traffic within the same availability zone, reducing latency and cross-zone data transfer costs.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Deploy an AKS cluster with nodes spread across **3 availability zones** (use the multi-zone Bicep template below).

@@ -15,6 +15,9 @@ From Exercise 06, the Bookstore has:
 
 Add **egress** NetworkPolicies to the Bookstore. The backend needs to call the external payment API (`httpbin.org`), but no other pod should be allowed to reach the internet. You must keep DNS working despite default-deny egress.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Verify that the backend pod can currently reach `httpbin.org` (via `external-api` service).

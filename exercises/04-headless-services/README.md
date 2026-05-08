@@ -14,6 +14,9 @@ From Exercise 03:
 
 Add a **database tier** to the Bookstore using a StatefulSet. Understand headless Services (Services without a cluster IP) and how they provide DNS records that resolve directly to individual pod IPs, giving each database replica a stable identity.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Create a **headless Service** named `database-svc` (with `clusterIP: None`) targeting pods with label `app=database`.

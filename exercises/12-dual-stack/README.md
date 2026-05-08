@@ -6,6 +6,9 @@
 
 Configure and test dual-stack networking on a Kubernetes cluster, where pods and services can have both IPv4 and IPv6 addresses simultaneously.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Deploy a dual-stack AKS cluster (use the Bicep template below).

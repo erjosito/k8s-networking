@@ -17,6 +17,9 @@ From Exercise 07, the Bookstore has:
 
 Replace the direct LoadBalancer exposure with proper HTTP routing through an **Ingress Controller**. Configure path-based and host-based routing with TLS termination for the Bookstore frontend and a monitoring dashboard.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Install the **NGINX Ingress Controller** in the cluster using Helm.

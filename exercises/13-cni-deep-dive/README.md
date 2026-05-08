@@ -9,6 +9,9 @@
 
 Understand the Container Networking Interface (CNI) by bootstrapping a Kubernetes cluster **without a CNI plugin**, observing what breaks, installing a CNI plugin manually, and inspecting the network plumbing it creates.
 
+
+> **💡 Tip:** You can save your YAML manifests and notes in the `solution/` folder within this exercise directory — it is git-ignored and won't be committed.
+
 ## Challenge
 
 1. Deploy 3 Azure VMs and bootstrap a Kubernetes cluster with `kubeadm` (the deploy script handles VM setup; you run `kubeadm`).

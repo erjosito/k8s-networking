@@ -213,6 +213,15 @@ kubectl delete namespace monitoring
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) — Canonical reference for all Kubernetes DNS record types (A/AAAA, SRV, CNAME).
+- [Customizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) — Configuring CoreDNS, stub domains, and upstream nameservers.
+- [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/) — Hands-on troubleshooting guide for DNS issues.
+- [Pod DNS Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) — dnsPolicy options (ClusterFirst, Default, None) and dnsConfig overrides.
+
 ---
 
 [⬅️ Previous: Headless Services](../04-headless-services/README.md) | [🏠 Home](../../README.md) | [Next: Network Policy — Ingress ➡️](../06-network-policy-ingress/README.md)

@@ -413,6 +413,16 @@ az group delete --name ckne-cni-lab --yes --no-wait
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/) — The fundamental networking model and how CNI plugins implement it.
+- [Network Plugins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) — How Kubernetes discovers and uses CNI binaries.
+- [Installing Addons — Networking](https://kubernetes.io/docs/concepts/cluster-administration/addons/#networking-and-network-policy) — List of CNI plugins available as cluster add-ons.
+- [Installing kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) — Setting up a cluster from scratch to understand the full stack.
+- [CNI Specification (GitHub)](https://github.com/containernetworking/cni/blob/main/SPEC.md) — The upstream spec that all CNI plugins must implement.
+
 ---
 
 [⬅️ Previous: Dual-Stack](../12-dual-stack/README.md) | [🏠 Home](../../README.md)

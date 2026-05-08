@@ -255,6 +255,14 @@ kubectl delete networkpolicy default-deny-ingress allow-frontend-to-backend allo
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) — How NetworkPolicy resources work, ingress/egress rules, selectors, and default behaviour.
+- [Declare Network Policy](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/) — Step-by-step tutorial for creating your first policy.
+- [Network Policy Provider — Calico](https://kubernetes.io/docs/tasks/administer-cluster/network-policy-provider-calico-node-policy/) — Using Calico as the NetworkPolicy enforcement engine.
+
 ---
 
 [⬅️ Previous: DNS Resolution](../05-dns-resolution/README.md) | [🏠 Home](../../README.md) | [Next: Network Policy — Egress ➡️](../07-network-policy-egress/README.md)

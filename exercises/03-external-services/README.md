@@ -312,6 +312,16 @@ kubectl delete svc frontend-nodeport  # optional
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Service — Publishing Services (ServiceTypes)](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types) — NodePort, LoadBalancer, and ExternalName explained.
+- [Service — External Traffic Policy](https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy) — How xternalTrafficPolicy affects source IP preservation and load distribution.
+- [Service — Internal Traffic Policy](https://kubernetes.io/docs/concepts/services-networking/service/#internal-traffic-policy) — Routing internal traffic to node-local endpoints.
+- [Service — Services without selectors](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors) — Pointing Services at external endpoints manually.
+- [Create an External Load Balancer](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/) — Step-by-step guide for LoadBalancer Services.
+
 ---
 
 [⬅️ Previous: ClusterIP Services](../02-clusterip-services/README.md) | [🏠 Home](../../README.md) | [Next: Headless Services ➡️](../04-headless-services/README.md)

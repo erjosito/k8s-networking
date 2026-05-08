@@ -189,6 +189,14 @@ kubectl delete svc database-svc
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Service — Headless Services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) — How clusterIP: None makes DNS return individual pod IPs.
+- [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) — Stable identity, ordered deployment, and persistent storage.
+- [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) — How Kubernetes generates DNS records, including per-pod records for StatefulSets.
+
 ---
 
 [⬅️ Previous: External Services](../03-external-services/README.md) | [🏠 Home](../../README.md) | [Next: DNS Resolution ➡️](../05-dns-resolution/README.md)

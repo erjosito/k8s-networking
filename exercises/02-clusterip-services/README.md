@@ -255,6 +255,15 @@ kubectl delete svc frontend-svc backend-svc
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Service](https://kubernetes.io/docs/concepts/services-networking/service/) — Core Service concepts, ClusterIP type, selectors, and virtual IPs.
+- [Connecting Applications with Services](https://kubernetes.io/docs/tutorials/services/connect-applications-service/) — Tutorial walking through exposing and consuming Services.
+- [EndpointSlices](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/) — How Kubernetes tracks which pods back a Service.
+- [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — Declarative pod management with scaling and rolling updates.
+
 ---
 
 [⬅️ Previous: Pod Networking](../01-pod-networking/README.md) | [🏠 Home](../../README.md) | [Next: External Services ➡️](../03-external-services/README.md)

@@ -393,6 +393,16 @@ kubectl delete svc backend-v2-svc
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Gateway API](https://kubernetes.io/docs/concepts/services-networking/gateway/) — Official Kubernetes overview of Gateway, GatewayClass, and route resources.
+- [Gateway API — Getting Started](https://gateway-api.sigs.k8s.io/guides/) — Step-by-step guides from the upstream Gateway API project.
+- [Gateway API — HTTPRoute](https://gateway-api.sigs.k8s.io/guides/http-routing/) — Path matching, header matching, and traffic splitting.
+- [Gateway API — GRPCRoute](https://gateway-api.sigs.k8s.io/guides/grpc-routing/) — Routing gRPC traffic with the Gateway API.
+- [Gateway API — API Reference](https://gateway-api.sigs.k8s.io/reference/spec/) — Full spec reference for all Gateway API resources.
+
 ---
 
 [⬅️ Previous: Ingress Controllers](../08-ingress-controllers/README.md) | [🏠 Home](../../README.md) | [Next: Service Debugging ➡️](../10-service-debugging/README.md)

@@ -297,6 +297,15 @@ kubectl delete namespace staging
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Debug Services](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/) — Systematic guide for diagnosing Service connectivity issues.
+- [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/) — Verifying CoreDNS is working and pods can resolve names.
+- [Debug Running Pods — Ephemeral Containers](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/#ephemeral-container) — Attaching debug containers to live pods without restarting them.
+- [Get a Shell to a Running Container](https://kubernetes.io/docs/tasks/debug/debug-application/get-shell-running-container/) — Using kubectl exec for interactive troubleshooting.
+
 ---
 
 [⬅️ Previous: Gateway API](../09-gateway-api/README.md) | [🏠 Home](../../README.md) | [Next: Topology-Aware Routing ➡️](../11-topology-aware-routing/README.md)

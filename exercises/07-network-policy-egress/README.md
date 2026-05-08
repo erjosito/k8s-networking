@@ -233,6 +233,14 @@ kubectl delete networkpolicy default-deny-egress allow-dns allow-backend-externa
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Network Policies — Egress](https://kubernetes.io/docs/concepts/services-networking/network-policies/) — Egress rule syntax, CIDR blocks, port selectors, and policy ordering.
+- [Network Policies — Default Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-policies) — Default-deny-all-egress and other baseline recipes.
+- [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) — Important when crafting egress rules that must allow DNS (UDP/TCP port 53).
+
 ---
 
 [⬅️ Previous: Network Policy — Ingress](../06-network-policy-ingress/README.md) | [🏠 Home](../../README.md) | [Next: Ingress Controllers ➡️](../08-ingress-controllers/README.md)

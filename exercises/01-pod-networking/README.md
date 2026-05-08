@@ -283,6 +283,15 @@ kubectl delete pod frontend backend frontend-debug
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Cluster Networking — The Kubernetes Network Model](https://kubernetes.io/docs/concepts/cluster-administration/networking/) — Why every pod gets its own IP and how the flat network model works.
+- [Pods — How Pods manage multiple containers](https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers) — Shared network namespace, localhost communication between containers.
+- [Host namespaces — hostNetwork](https://kubernetes.io/docs/concepts/security/pod-security-standards/) — Security implications of hostNetwork: true.
+- [Pod Networking](https://kubernetes.io/docs/concepts/services-networking/) — Overview of services and networking concepts.
+
 ---
 
 [🏠 Home](../../README.md) | [Next: ClusterIP Services ➡️](../02-clusterip-services/README.md)

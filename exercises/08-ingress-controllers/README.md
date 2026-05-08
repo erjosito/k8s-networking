@@ -330,6 +330,15 @@ helm uninstall ingress-nginx -n ingress-nginx
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) — Path-based and host-based routing, default backends, and resource rules.
+- [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) — Overview of available controllers and how they implement the Ingress spec.
+- [Ingress — TLS](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) — Configuring TLS termination with Kubernetes Secrets.
+- [TLS Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) — How to create and manage TLS certificate Secrets.
+
 ---
 
 [⬅️ Previous: Network Policy — Egress](../07-network-policy-egress/README.md) | [🏠 Home](../../README.md) | [Next: Gateway API ➡️](../09-gateway-api/README.md)

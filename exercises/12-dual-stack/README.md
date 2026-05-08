@@ -292,6 +292,14 @@ az group delete --name ckne-dualstack-lab --yes --no-wait
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [IPv4/IPv6 Dual-Stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/) — How dual-stack networking works in Kubernetes and how to configure it.
+- [Validate IPv4/IPv6 Dual-Stack](https://kubernetes.io/docs/tasks/network/validate-dual-stack/) — Step-by-step validation of dual-stack pods, Services, and addressing.
+- [Service — ipFamilyPolicy](https://kubernetes.io/docs/concepts/services-networking/service/#ip-families) — Controlling IPv4-only, IPv6-only, dual-stack, and family ordering.
+
 ---
 
 [⬅️ Previous: Topology-Aware Routing](../11-topology-aware-routing/README.md) | [🏠 Home](../../README.md) | [Next: CNI Deep Dive ➡️](../13-cni-deep-dive/README.md)

@@ -269,6 +269,15 @@ az group delete --name ckne-multizone-lab --yes --no-wait
 
 </details>
 
+## 📚 Where to Look Next
+
+Deepen your understanding of the topics in this exercise with the official Kubernetes documentation:
+
+- [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) — How EndpointSlice hints steer traffic to same-zone endpoints.
+- [Service — Traffic Distribution](https://kubernetes.io/docs/concepts/services-networking/service/#traffic-distribution) — The 	rafficDistribution field and PreferClose behaviour.
+- [EndpointSlices](https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/) — The data structure that carries topology hints.
+- [Well-Known Labels — topology.kubernetes.io/zone](https://kubernetes.io/docs/reference/labels-annotations-taints/#topologykubernetesiozone) — The zone label used for topology-aware decisions.
+
 ---
 
 [⬅️ Previous: Service Debugging](../10-service-debugging/README.md) | [🏠 Home](../../README.md) | [Next: Dual-Stack ➡️](../12-dual-stack/README.md)

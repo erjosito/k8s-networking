@@ -57,3 +57,4 @@ Exercises 11–13 require **separate, specialized clusters** (multi-zone, dual-s
 4. **Do not clean up** between exercises 01–10 (cleanup is optional at the end of each)
 5. Exercises 11–13 can be done in any order — they use separate clusters
 6. Use the hints and solutions only when stuck — the challenge format is intentional!
+7. After completing each exercise, run `./verify.sh` from the exercise folder to check your work

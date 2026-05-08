@@ -20,8 +20,8 @@ param sshPublicKey string
 @description('VM size')
 param vmSize string = 'Standard_D2s_v5'
 
-@description('Kubernetes version to install')
-param kubernetesVersion string = '1.30'
+@description('Kubernetes minor version for apt repo (e.g. "1.32"). Leave empty to auto-detect latest stable.')
+param kubernetesVersion string = '1.32'
 
 var vnetName = '${prefix}-vnet'
 var subnetName = 'default'

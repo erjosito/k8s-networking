@@ -13,8 +13,6 @@ param location string = resourceGroup().location
 @description('Name of the AKS cluster')
 param clusterName string = 'ckne-aks'
 
-@description('Kubernetes version')
-param kubernetesVersion string = '1.30'
 
 @description('VM size for the default node pool')
 param vmSize string = 'Standard_D2s_v5'
@@ -72,7 +70,6 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2024-01-01' = {
   }
   properties: {
     dnsPrefix: clusterName
-    kubernetesVersion: kubernetesVersion
     agentPoolProfiles: [
       {
         name: 'default'

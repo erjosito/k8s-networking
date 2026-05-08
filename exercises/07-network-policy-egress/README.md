@@ -1,3 +1,5 @@
+[⬅️ Previous: Network Policy — Ingress](../06-network-policy-ingress/README.md) | [🏠 Home](../../README.md) | [Next: Ingress Controllers ➡️](../08-ingress-controllers/README.md)
+
 # Exercise 07 — Network Policy: Egress Rules
 
 **Blueprint Domain:** 4 — Network Policies  
@@ -230,3 +232,7 @@ kubectl delete networkpolicy default-deny-egress allow-dns allow-backend-externa
 - https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-egress-traffic
 
 </details>
+
+---
+
+[⬅️ Previous: Network Policy — Ingress](../06-network-policy-ingress/README.md) | [🏠 Home](../../README.md) | [Next: Ingress Controllers ➡️](../08-ingress-controllers/README.md)

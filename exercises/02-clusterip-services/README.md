@@ -1,3 +1,5 @@
+[⬅️ Previous: Pod Networking](../01-pod-networking/README.md) | [🏠 Home](../../README.md) | [Next: External Services ➡️](../03-external-services/README.md)
+
 # Exercise 02 — ClusterIP Services
 
 **Blueprint Domain:** 2 — Services & Service Discovery  
@@ -252,3 +254,7 @@ kubectl delete svc frontend-svc backend-svc
 - https://kubernetes.io/docs/tutorials/services/connect-applications-service/
 
 </details>
+
+---
+
+[⬅️ Previous: Pod Networking](../01-pod-networking/README.md) | [🏠 Home](../../README.md) | [Next: External Services ➡️](../03-external-services/README.md)

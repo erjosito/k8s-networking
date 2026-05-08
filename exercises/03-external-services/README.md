@@ -1,3 +1,5 @@
+[⬅️ Previous: ClusterIP Services](../02-clusterip-services/README.md) | [🏠 Home](../../README.md) | [Next: Headless Services ➡️](../04-headless-services/README.md)
+
 # Exercise 03 — External Services (NodePort & LoadBalancer)
 
 **Blueprint Domain:** 2 — Services & Service Discovery  
@@ -309,3 +311,7 @@ kubectl delete svc frontend-nodeport  # optional
 - https://kubernetes.io/docs/concepts/services-networking/service/#external-traffic-policy
 
 </details>
+
+---
+
+[⬅️ Previous: ClusterIP Services](../02-clusterip-services/README.md) | [🏠 Home](../../README.md) | [Next: Headless Services ➡️](../04-headless-services/README.md)

@@ -1,3 +1,5 @@
+[⬅️ Previous: DNS Resolution](../05-dns-resolution/README.md) | [🏠 Home](../../README.md) | [Next: Network Policy — Egress ➡️](../07-network-policy-egress/README.md)
+
 # Exercise 06 — Network Policy: Ingress Rules
 
 **Blueprint Domain:** 4 — Network Policies  
@@ -252,3 +254,7 @@ kubectl delete networkpolicy default-deny-ingress allow-frontend-to-backend allo
 - https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
 
 </details>
+
+---
+
+[⬅️ Previous: DNS Resolution](../05-dns-resolution/README.md) | [🏠 Home](../../README.md) | [Next: Network Policy — Egress ➡️](../07-network-policy-egress/README.md)

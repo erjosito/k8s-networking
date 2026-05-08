@@ -1,3 +1,5 @@
+[⬅️ Previous: Dual-Stack](../12-dual-stack/README.md) | [🏠 Home](../../README.md)
+
 # Exercise 13 — CNI Deep Dive
 
 **Blueprint Domain:** 1 — Kubernetes Network Model Fundamentals (topics 1.4, 1.5)  
@@ -410,3 +412,7 @@ az group delete --name ckne-cni-lab --yes --no-wait
 - https://www.cni.dev/docs/spec/
 
 </details>
+
+---
+
+[⬅️ Previous: Dual-Stack](../12-dual-stack/README.md) | [🏠 Home](../../README.md)

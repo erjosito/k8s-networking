@@ -1,3 +1,5 @@
+[⬅️ Previous: Ingress Controllers](../08-ingress-controllers/README.md) | [🏠 Home](../../README.md) | [Next: Service Debugging ➡️](../10-service-debugging/README.md)
+
 # Exercise 09 — Gateway API
 
 **Blueprint Domain:** 6 — Gateway API  
@@ -390,3 +392,7 @@ kubectl delete svc backend-v2-svc
 - https://gateway-api.sigs.k8s.io/guides/http-routing/
 
 </details>
+
+---
+
+[⬅️ Previous: Ingress Controllers](../08-ingress-controllers/README.md) | [🏠 Home](../../README.md) | [Next: Service Debugging ➡️](../10-service-debugging/README.md)

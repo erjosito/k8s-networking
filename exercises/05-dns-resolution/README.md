@@ -1,3 +1,5 @@
+[⬅️ Previous: Headless Services](../04-headless-services/README.md) | [🏠 Home](../../README.md) | [Next: Network Policy — Ingress ➡️](../06-network-policy-ingress/README.md)
+
 # Exercise 05 — DNS Resolution in Kubernetes
 
 **Blueprint Domain:** 3 — DNS for Services and Pods  
@@ -210,3 +212,7 @@ kubectl delete namespace monitoring
 - https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
 
 </details>
+
+---
+
+[⬅️ Previous: Headless Services](../04-headless-services/README.md) | [🏠 Home](../../README.md) | [Next: Network Policy — Ingress ➡️](../06-network-policy-ingress/README.md)

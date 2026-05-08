@@ -1,3 +1,5 @@
+[🏠 Home](../../README.md) | [Next: ClusterIP Services ➡️](../02-clusterip-services/README.md)
+
 # Exercise 01 — Pod-to-Pod Networking
 
 **Blueprint Domain:** 1 — Kubernetes Network Model Fundamentals  
@@ -280,3 +282,7 @@ kubectl delete pod frontend backend frontend-debug
 - https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers
 
 </details>
+
+---
+
+[🏠 Home](../../README.md) | [Next: ClusterIP Services ➡️](../02-clusterip-services/README.md)

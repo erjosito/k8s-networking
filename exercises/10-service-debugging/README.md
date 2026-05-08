@@ -1,3 +1,5 @@
+[⬅️ Previous: Gateway API](../09-gateway-api/README.md) | [🏠 Home](../../README.md) | [Next: Topology-Aware Routing ➡️](../11-topology-aware-routing/README.md)
+
 # Exercise 10 — Service Debugging
 
 **Blueprint Domain:** 10 — Network Troubleshooting  
@@ -294,3 +296,7 @@ kubectl delete namespace staging
 - https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
 
 </details>
+
+---
+
+[⬅️ Previous: Gateway API](../09-gateway-api/README.md) | [🏠 Home](../../README.md) | [Next: Topology-Aware Routing ➡️](../11-topology-aware-routing/README.md)

@@ -1,3 +1,5 @@
+[⬅️ Previous: Topology-Aware Routing](../11-topology-aware-routing/README.md) | [🏠 Home](../../README.md) | [Next: CNI Deep Dive ➡️](../13-cni-deep-dive/README.md)
+
 # Exercise 12 — IPv4/IPv6 Dual-Stack Networking
 
 **Blueprint Domain:** 8 — IPv4/IPv6 Dual-Stack
@@ -289,3 +291,7 @@ az group delete --name ckne-dualstack-lab --yes --no-wait
 - https://learn.microsoft.com/en-us/azure/aks/configure-kubenet-dual-stack
 
 </details>
+
+---
+
+[⬅️ Previous: Topology-Aware Routing](../11-topology-aware-routing/README.md) | [🏠 Home](../../README.md) | [Next: CNI Deep Dive ➡️](../13-cni-deep-dive/README.md)

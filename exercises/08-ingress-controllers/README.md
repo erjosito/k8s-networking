@@ -1,3 +1,5 @@
+[⬅️ Previous: Network Policy — Egress](../07-network-policy-egress/README.md) | [🏠 Home](../../README.md) | [Next: Gateway API ➡️](../09-gateway-api/README.md)
+
 # Exercise 08 — Ingress Controllers & Ingress Resources
 
 **Blueprint Domain:** 5 — Ingress  
@@ -327,3 +329,7 @@ helm uninstall ingress-nginx -n ingress-nginx
 - https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
 
 </details>
+
+---
+
+[⬅️ Previous: Network Policy — Egress](../07-network-policy-egress/README.md) | [🏠 Home](../../README.md) | [Next: Gateway API ➡️](../09-gateway-api/README.md)

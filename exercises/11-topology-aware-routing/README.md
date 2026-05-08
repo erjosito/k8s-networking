@@ -1,3 +1,5 @@
+[⬅️ Previous: Service Debugging](../10-service-debugging/README.md) | [🏠 Home](../../README.md) | [Next: Dual-Stack ➡️](../12-dual-stack/README.md)
+
 # Exercise 11 — Topology-Aware Routing
 
 **Blueprint Domain:** 9 — Topology-Aware Routing
@@ -266,3 +268,7 @@ az group delete --name ckne-multizone-lab --yes --no-wait
 - https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/
 
 </details>
+
+---
+
+[⬅️ Previous: Service Debugging](../10-service-debugging/README.md) | [🏠 Home](../../README.md) | [Next: Dual-Stack ➡️](../12-dual-stack/README.md)

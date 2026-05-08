@@ -1,3 +1,5 @@
+[⬅️ Previous: External Services](../03-external-services/README.md) | [🏠 Home](../../README.md) | [Next: DNS Resolution ➡️](../05-dns-resolution/README.md)
+
 # Exercise 04 — Headless Services & StatefulSet DNS
 
 **Blueprint Domain:** 2 — Services & Service Discovery + 3 — DNS  
@@ -186,3 +188,7 @@ kubectl delete svc database-svc
 - https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 
 </details>
+
+---
+
+[⬅️ Previous: External Services](../03-external-services/README.md) | [🏠 Home](../../README.md) | [Next: DNS Resolution ➡️](../05-dns-resolution/README.md)
